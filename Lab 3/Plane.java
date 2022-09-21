@@ -64,6 +64,14 @@ public class Plane{
         }
     }
     public void assignSeat(int seatId, int cust_id){
+        for(int i=0; i<12;i++){
+            if(this.seat[i].isOccupied()){
+                if(this.seat[i].getCustomerID() == cust_id){
+                    System.out.println("Duplicate customer ID! Error!");
+                    return;
+                }
+            }
+        }
         if(this.seat[seatId].isOccupied()){
             System.out.println("Seat already assigned to a customer.");
         }else{
